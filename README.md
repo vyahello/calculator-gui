@@ -7,6 +7,9 @@ Run script from the root directory of the project:
 ~ python calc.py
 ```
 
+## Demo
+![Screenshot](lib/demo/calc.png)
+
 ## Contributing
 
 - clone the repository
