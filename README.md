@@ -1,5 +1,5 @@
 # GUI calculator
-Basic GUI calculator in OOP style written in python.
+Basic GUI calculator in OOP style written in python with Tkinter library.
 
 ## Run gui calculator
 Run script from the root directory of the project:
