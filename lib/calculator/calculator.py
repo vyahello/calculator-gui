@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
-from lib.button import ButtonAction, Buttons, CalculatorButtons
-from lib.frame import Frame
-from lib.screen import Screen, CalculatorScreen
-from lib.types import TypeDisplay
+from lib.calculator.button import ButtonAction, Buttons, CalculatorButtons
+from lib.calculator.frame import Frame
+from lib.calculator.screen import Screen, CalculatorScreen
+from lib.calculator.types import TypeDisplay
 
 
 class Device(ABC):

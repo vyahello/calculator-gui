@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from tkinter import Entry, StringVar
-from lib.types import TypeDisplay
+from lib.calculator.types import TypeDisplay
 
 
 class Screen(ABC):

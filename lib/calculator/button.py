@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
 from typing import Callable, Iterable
-from lib.frame import Frame
-from lib.types import TypeDisplay
+from lib.calculator.frame import Frame
+from lib.calculator.types import TypeDisplay
 import tkinter
 from tkinter import Widget
 
