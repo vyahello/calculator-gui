@@ -5,7 +5,7 @@ from lib.calculator.screen import Screen, CalculatorScreen
 from lib.calculator.types import TypeDisplay, StringDisplay
 
 
-class Device(ABC):
+class Appliance(ABC):
     """Abstraction of some device."""
 
     @abstractmethod
@@ -13,7 +13,7 @@ class Device(ABC):
         pass
 
 
-class _Calculator(Device):
+class _Calculator(Appliance):
     """Represent calculator device."""
 
     def __init__(self, frame: Frame, display: TypeDisplay) -> None:
@@ -28,11 +28,11 @@ class _Calculator(Device):
         self._frame.run()
 
 
-class GUICalculator(Device):
-    """Represent GUI calculator device."""
+class PocketCalculator(Appliance):
+    """Represent pocket calculator device."""
 
     def __init__(self, name: str = 'Calculator') -> None:
-        self._calculator: Device = _Calculator(CalculatorFrame(name), StringDisplay())
+        self._calculator: Appliance = _Calculator(CalculatorFrame(name), StringDisplay())
 
     def run(self) -> None:
         self._calculator.run()
