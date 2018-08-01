@@ -1,7 +1,7 @@
 from abc import ABC, abstractmethod
-from typing import Callable, Iterable
+from typing import Callable
+from lib.calculator.action import Action
 from lib.calculator.frame import Frame
-from lib.calculator.types import TypeDisplay
 import tkinter
 from tkinter import Widget
 
@@ -12,50 +12,6 @@ class Button(ABC):
     @abstractmethod
     def grid(self) -> None:
         pass
-
-
-class Buttons(ABC):
-    """Abstract interface a buttons."""
-
-    @abstractmethod
-    def render(self) -> None:
-        pass
-
-
-class Action(ABC):
-    """Abstract interfaces for button actions."""
-
-    @abstractmethod
-    def click(self, number: str = None, operator: str = None) -> None:
-        pass
-
-    @abstractmethod
-    def clear(self) -> None:
-        pass
-
-    @abstractmethod
-    def equals(self) -> None:
-        pass
-
-
-class ButtonAction(Action):
-    """Concrete button action."""
-
-    def __init__(self, data: TypeDisplay) -> None:
-        self._operator: str = ''
-        self._data = data
-
-    def click(self, number: str = None, operator: str = None) -> None:
-        self._operator += str(number if number else operator)
-        self._data.set(self._operator)
-
-    def clear(self) -> None:
-        self._operator: str = ''
-        self._data.set('')
-
-    def equals(self) -> None:
-        self._data.set(str(eval(self._operator)))
-        self._operator: str = ''
 
 
 class CalculatorButton(Button):
@@ -300,31 +256,3 @@ class Divide(Button):
 
     def grid(self) -> None:
         self._button.grid()
-
-
-class CalculatorButtons(Buttons):
-    """Represent calculator buttons facade."""
-
-    def __init__(self, frame: Frame, action: Action) -> None:
-        self._buttons: Iterable[Button] = (
-            One(frame, action),
-            Two(frame, action),
-            Three(frame, action),
-            Four(frame, action),
-            Five(frame, action),
-            Six(frame, action),
-            Seven(frame, action),
-            Eight(frame, action),
-            Nine(frame, action),
-            Zero(frame, action),
-            Add(frame, action),
-            Subtract(frame, action),
-            Multiply(frame, action),
-            Clear(frame, action),
-            Equals(frame, action),
-            Divide(frame, action),
-        )
-
-    def render(self) -> None:
-        for button in self._buttons:
-            button.grid()
