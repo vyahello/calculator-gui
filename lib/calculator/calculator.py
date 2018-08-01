@@ -1,8 +1,8 @@
 from abc import ABC, abstractmethod
 from lib.calculator.button import ButtonAction, Buttons, CalculatorButtons
-from lib.calculator.frame import Frame
+from lib.calculator.frame import Frame, CalculatorFrame
 from lib.calculator.screen import Screen, CalculatorScreen
-from lib.calculator.types import TypeDisplay
+from lib.calculator.types import TypeDisplay, StringDisplay
 
 
 class Device(ABC):
@@ -13,7 +13,7 @@ class Device(ABC):
         pass
 
 
-class Calculator(Device):
+class _Calculator(Device):
     """Represent calculator device."""
 
     def __init__(self, frame: Frame, display: TypeDisplay) -> None:
@@ -26,3 +26,13 @@ class Calculator(Device):
         self._screen.grid()
         self._buttons.render()
         self._frame.run()
+
+
+class GUICalculator(Device):
+    """Represent GUI calculator device."""
+
+    def __init__(self, name: str = 'Calculator') -> None:
+        self._calculator: Device = _Calculator(CalculatorFrame(name), StringDisplay())
+
+    def run(self) -> None:
+        self._calculator.run()
