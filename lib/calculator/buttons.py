@@ -12,6 +12,10 @@ class Buttons(ABC):
     """Abstract interface a buttons."""
 
     @abstractmethod
+    def items(self) -> Iterable[Button]:
+        pass
+
+    @abstractmethod
     def render(self) -> None:
         pass
 
@@ -38,6 +42,9 @@ class CalculatorButtons(Buttons):
             Equals(frame, action),
             Divide(frame, action),
         )
+
+    def items(self) -> Iterable[Button]:
+        return self._buttons
 
     def render(self) -> None:
         for button in self._buttons:
