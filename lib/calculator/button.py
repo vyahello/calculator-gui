@@ -160,20 +160,6 @@ class Nine(Button):
         self._button.grid()
 
 
-class Zero(Button):
-    """Number ``zero`` in a calculator."""
-
-    def __init__(self, frame: Frame, action: Action) -> None:
-        self._button: Button = CalculatorButton(row=4,
-                                                column=0,
-                                                text='0',
-                                                frame=frame,
-                                                command=lambda: action.click(number='0'))
-
-    def grid(self) -> None:
-        self._button.grid()
-
-
 class Add(Button):
     """``Addition`` operator button."""
 
@@ -216,29 +202,43 @@ class Multiply(Button):
         self._button.grid()
 
 
-class Clear(Button):
-    """``Clear`` operator button."""
+class Zero(Button):
+    """Number ``zero`` in a calculator."""
 
     def __init__(self, frame: Frame, action: Action) -> None:
         self._button: Button = CalculatorButton(row=4,
-                                                column=1,
-                                                text='C',
+                                                column=0,
+                                                text='0',
                                                 frame=frame,
-                                                command=action.clear)
+                                                command=lambda: action.click(number='0'))
 
     def grid(self) -> None:
         self._button.grid()
 
 
-class Equals(Button):
-    """``Equals`` operator button."""
+class Power(Button):
+    """``Power`` symbol button."""
+
+    def __init__(self, frame: Frame, action: Action) -> None:
+        self._button: Button = CalculatorButton(row=4,
+                                                column=1,
+                                                text='x^y',
+                                                frame=frame,
+                                                command=lambda: action.click(operator='**'))
+
+    def grid(self) -> None:
+        self._button.grid()
+
+
+class Pi(Button):
+    """``Pi`` symbol button."""
 
     def __init__(self, frame: Frame, action: Action) -> None:
         self._button: Button = CalculatorButton(row=4,
                                                 column=2,
-                                                text='=',
+                                                text='π',
                                                 frame=frame,
-                                                command=action.equals)
+                                                command=lambda: action.click(operator='3.14159'))
 
     def grid(self) -> None:
         self._button.grid()
@@ -258,6 +258,20 @@ class Divide(Button):
         self._button.grid()
 
 
+class Clear(Button):
+    """``Clear`` operator button."""
+
+    def __init__(self, frame: Frame, action: Action) -> None:
+        self._button: Button = CalculatorButton(row=5,
+                                                column=0,
+                                                text='C',
+                                                frame=frame,
+                                                command=action.clear)
+
+    def grid(self) -> None:
+        self._button.grid()
+
+
 class Dot(Button):
     """``Dot`` symbol button."""
 
@@ -267,6 +281,34 @@ class Dot(Button):
                                                 text='.',
                                                 frame=frame,
                                                 command=lambda: action.click(operator='.'))
+
+    def grid(self) -> None:
+        self._button.grid()
+
+
+class Equals(Button):
+    """``Equals`` operator button."""
+
+    def __init__(self, frame: Frame, action: Action) -> None:
+        self._button: Button = CalculatorButton(row=5,
+                                                column=2,
+                                                text='=',
+                                                frame=frame,
+                                                command=action.equals)
+
+    def grid(self) -> None:
+        self._button.grid()
+
+
+class Module(Button):
+    """``Module`` symbol button."""
+
+    def __init__(self, frame: Frame, action: Action) -> None:
+        self._button: Button = CalculatorButton(row=5,
+                                                column=3,
+                                                text='%',
+                                                frame=frame,
+                                                command=lambda: action.click(operator='%'))
 
     def grid(self) -> None:
         self._button.grid()

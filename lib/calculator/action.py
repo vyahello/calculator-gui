@@ -1,6 +1,6 @@
 from abc import ABC, abstractmethod
 from typing import Tuple
-from lib.calculator.operators import Operator, Add, Subtract, Divide, Multiply, Dot
+from lib.calculator.operators import Operator, Add, Subtract, Divide, Multiply, Dot, Module, Power, Pi
 from lib.calculator.types import TypeDisplay
 
 
@@ -25,7 +25,7 @@ class ButtonAction(Action):
 
     def __init__(self, data: TypeDisplay) -> None:
         self._operators: Tuple[Operator] = (
-            Add(), Subtract(), Divide(), Multiply(), Dot()
+            Add(), Subtract(), Divide(), Multiply(), Dot(), Module(), Power(), Pi()
         )
         self._input: str = ''
         self._data = data

@@ -3,7 +3,8 @@ from typing import Iterator, Callable
 from lib.calculator.button import (Button, One, Two, Three, Four,
                                    Five, Six, Seven, Eight,
                                    Nine, Zero, Add, Subtract,
-                                   Multiply, Clear, Equals, Divide)
+                                   Multiply, Clear, Equals, Divide,
+                                   Dot, Module, Power, Pi)
 from lib.calculator.action import Action
 from lib.calculator.frame import Frame
 
@@ -45,6 +46,10 @@ class CalculatorButtons(Buttons):
                     Clear(frame, action),
                     Equals(frame, action),
                     Divide(frame, action),
+                    Dot(frame, action),
+                    Module(frame, action),
+                    Power(frame, action),
+                    Pi(frame, action)
             )
 
         self._buttons: Callable[..., Iterator[Button]] = buttons

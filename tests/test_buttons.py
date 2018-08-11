@@ -4,7 +4,7 @@ from lib.calculator.frame import CalculatorFrame
 from lib.calculator.types import StringDisplay
 
 _name: str = 'calculator'
-_buttons: int = 16
+_buttons: int = 20
 
 
 def test_calculator_buttons() -> None:

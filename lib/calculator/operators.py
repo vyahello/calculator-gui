@@ -42,3 +42,24 @@ class Dot(Operator):
 
     def __str__(self) -> str:
         return '.'
+
+
+class Module(Operator):
+    """Module operator."""
+
+    def __str__(self) -> str:
+        return '%'
+
+
+class Power(Operator):
+    """Power operator."""
+
+    def __str__(self) -> str:
+        return '**'
+
+
+class Pi(Operator):
+    """Pi operator number."""
+
+    def __str__(self) -> str:
+        return '3.14159'
