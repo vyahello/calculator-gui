@@ -28,7 +28,7 @@ class CalculatorButtons(Buttons):
 
         @functools.lru_cache()
         def buttons() -> Iterator[Button]:
-            for button in (
+            yield from (
                     One(frame, action),
                     Two(frame, action),
                     Three(frame, action),
@@ -45,8 +45,7 @@ class CalculatorButtons(Buttons):
                     Clear(frame, action),
                     Equals(frame, action),
                     Divide(frame, action),
-            ):
-                yield button
+            )
 
         self._buttons: Callable[..., Iterator[Button]] = buttons
 
@@ -55,4 +54,4 @@ class CalculatorButtons(Buttons):
             button.grid()
 
     def __len__(self) -> int:
-        return len(set(self._buttons()))
+        return len(tuple(self._buttons()))
