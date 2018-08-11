@@ -256,3 +256,17 @@ class Divide(Button):
 
     def grid(self) -> None:
         self._button.grid()
+
+
+class Dot(Button):
+    """``Dot`` symbol button."""
+
+    def __init__(self, frame: Frame, action: Action) -> None:
+        self._button: Button = CalculatorButton(row=5,
+                                                column=1,
+                                                text='.',
+                                                frame=frame,
+                                                command=lambda: action.click(operator='.'))
+
+    def grid(self) -> None:
+        self._button.grid()
